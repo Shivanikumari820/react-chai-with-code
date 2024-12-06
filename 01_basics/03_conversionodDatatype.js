@@ -1,3 +1,4 @@
+// convert in Number ------------------->>>
 // let score = 33
 let score ="33abc"
 
@@ -26,7 +27,7 @@ console.log(booleanIsLoggedIn);                    // 1 => true
 // "shivani" => true
 
 
-
+// convert in string------------------->>>
 let someNumber = 11
 
 let stringNumber = String(someNumber)
