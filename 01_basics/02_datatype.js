@@ -55,15 +55,6 @@ console.log(Name);
 const Lastname = 'Kumar';
 console.log(Name + ' ' + Lastname) 
 
-    //string '1' + '1' = string
-    //string + number = string
-    //string * number = number
-    
-console.log('1' + '1')          //11  string ki form m 
-console.log('1' + 11)           //111 
-console.log('1' * 11)           //11 aayega but number ki form me , [ so if you want to change a string into number , then multiply that no. by 1 ]
-        //  or
-console.log('123'* 1)          //123
 
 //  3. Boooleans      1 / 0           
 let isLoggedIn = false
