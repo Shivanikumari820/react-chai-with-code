@@ -22,3 +22,28 @@ const navbar = ({ company } = {}) => {
 
 // Invoking the function
 navbar({ company: "shivani" }); // Output: shivani
+
+
+/*
+ What is JSON 
+JSON (JavaScript Object Notation) is a lightweight data format for storing and exchanging data. It is easy for humans to read and write and easy for machines to parse and generate.
+
+Syntax:-
+{
+    "key": "value"
+}
+
+
+Example:-
+{
+    "name": "Shivani",
+    "age": 25,
+    "isStudent": true,
+    "skills": ["JavaScript", "Python", "HTML"],
+    "address": {
+        "city": "Delhi",
+        "zipCode": 110001
+    }
+}
+
+*/
