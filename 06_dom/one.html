@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM learning on Chai or code </h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </div>
+
+</body>
+</html>
+
+
+<!-- 
+1. innerText
+Definition: Retrieves or sets the visible text of an element, respecting the CSS styles that affect visibility and layout.
+Behavior:
+Excludes hidden elements (e.g., display: none or visibility: hidden).
+Triggers a reflow to calculate the visible text, making it slower.
+Ignores additional whitespace, rendering the text as it would appear to the user 
+
+
+<div id="example" style="display: none;">
+    This is hidden.
+</div>
+<script>
+    console.log(document.getElementById('example').innerText); // ""
+</script>
+
+
+2. textContent
+Definition: Retrieves or sets the text content of an element, including all text, regardless of CSS styles.
+Behavior:
+Includes hidden elements.
+Does not trigger a reflow, making it faster.
+Preserves whitespace exactly as it appears in the source code.
+
+
+<div id="example" style="display: none;">
+    This is hidden.
+</div>
+<script>
+    console.log(document.getElementById('example').textContent); // "This is hidden."
+</script>
+
+
+3. innerHTML
+A property in JavaScript to get or set the HTML content inside an element.
+Key Features:
+
+Retrieves HTML + text inside an element.
+Allows updating or adding dynamic HTML content.
+Can include or render HTML tags.
+
+
+<div id="example">Old Content</div>
+<script>
+    const element = document.getElementById('example');
+    element.innerHTML = "<p>New <b>HTML</b> Content</p>";
+    console.log(element.innerHTML); // "<p>New <b>HTML</b> Content</p>"
+</script>
+
+
+
+
+
+NOTE:-
+
+DOM से एलिमेंट्स को एक्सेस करने के लिए NodeList या HTMLCollection मिलते हैं, जो Array जैसे दिखते हैं लेकिन Array नहीं हैं।
+
+NodeLists या HTMLCollections में Array की तरह map, filter, आदि जैसे methods उपलब्ध नहीं होते।
+यदि जरूरत हो, तो इन्हें Array में बदलना पड़ता है:
+
+---------------------------------------------------------------------------------------------------------------------------
+1. Accessing NodeList Items by Index
+NodeList को इंडेक्स नंबर के जरिए एक्सेस किया जा सकता है।
+
+const nodeList = document.querySelectorAll('p'); // Selects all <p> elements
+console.log(nodeList[0]); // Access the first <p> element
+console.log(nodeList[1]); // Access the second <p> element
+
+
+2. Using length Property
+length प्रॉपर्टी का उपयोग करके NodeList में मौजूद नोड्स की संख्या को जाना जा सकता है।
+
+const nodeList = document.querySelectorAll('p');
+console.log(nodeList.length); // Number of <p> elements in the NodeList
+
+
+3. Using forEach
+NodeList में forEach method उपलब्ध है, जो प्रत्येक नोड पर एक फंक्शन चलाता है।
+
+const nodeList = document.querySelectorAll('p');
+nodeList.forEach((node) => {
+    console.log(node.textContent);
+});   
+
+
+4.
+NodeList को एक्सेस करने और उपयोग करने के लिए विभिन्न तरीके और गुण हैं। NodeList एक Array-like object है जो DOM के नोड्स का एक कलेक्शन प्रदान करता है। इसे एक्सेस करने के लिए कई तरीके उपलब्ध हैं:
+
+1. Accessing NodeList Items by Index
+NodeList को इंडेक्स नंबर के जरिए एक्सेस किया जा सकता है।
+
+javascript
+Copy code
+const nodeList = document.querySelectorAll('p'); // Selects all <p> elements
+console.log(nodeList[0]); // Access the first <p> element
+console.log(nodeList[1]); // Access the second <p> element
+2. Using length Property
+length प्रॉपर्टी का उपयोग करके NodeList में मौजूद नोड्स की संख्या को जाना जा सकता है।
+
+javascript
+Copy code
+const nodeList = document.querySelectorAll('p');
+console.log(nodeList.length); // Number of <p> elements in the NodeList
+3. Looping Through NodeList
+(a) Using for Loop
+javascript
+Copy code
+const nodeList = document.querySelectorAll('p');
+for (let i = 0; i < nodeList.length; i++) {
+    console.log(nodeList[i].textContent);
+}
+(b) Using for...of Loop
+NodeList को iterable बनाया गया है, इसलिए आप for...of का उपयोग कर सकते हैं।
+
+javascript
+Copy code
+const nodeList = document.querySelectorAll('p');
+for (const node of nodeList) {
+    console.log(node.textContent);
+}
+(c) Using forEach
+NodeList में forEach method उपलब्ध है, जो प्रत्येक नोड पर एक फंक्शन चलाता है।
+
+javascript
+Copy code
+const nodeList = document.querySelectorAll('p');
+nodeList.forEach((node) => {
+    console.log(node.textContent);
+});
+
+
+4. Converting NodeList to Array
+NodeList Array-like होती है, लेकिन यदि आपको Array methods (e.g., map, filter, reduce) का उपयोग करना हो, तो इसे Array में बदल सकते हैं।
+
+Using Array.from
+
+const nodeList = document.querySelectorAll('p');
+const array = Array.from(nodeList);
+array.map(node => console.log(node.textContent));
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOPIC: getElementsByClassName
+
+classNames: A string representing one or more class names (separated by spaces).
+
+example:
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+<div class="box">Box 3</div>
+
+<script>
+    const boxes = document.getElementsByClassName('box');
+    console.log(boxes); // HTMLCollection of <div> elements with class "box"
+
+    // Access individual elements by index
+    console.log(boxes[0].textContent); // "Box 1"
+    console.log(boxes[1].textContent); // "Box 2"
+</script>
+
+
+-->
