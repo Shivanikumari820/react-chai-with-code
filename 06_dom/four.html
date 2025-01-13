@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+// create list in form of langauge 
+    function addLanguage(langName) {
+        const li = document.createElement('li');             //Create a New <li> Element
+        li.innerHTML = langName                             //innerHTML sets the content of the <li> element to the value of langName.
+        document.querySelector('.language').appendChild(li)    //Find the Target List and Add the <li>
+    }
+    addLanguage("python")                  //Call the addLanguage Function
+    addLanguage("typescript")
+
+//also create list in form of language in another or optimize way
+//Add language in optimize way to save the space :
+      
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))     //Creates a text node using document.createTextNode(langName) and appends it to the <li>.
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+
+    
+
+    //  how to Edit any list
+    const secondLang = document.querySelector("li:nth-child(2)")               //second element ko select ko means python ko
+    secondLang.innerHTML = "Mojo"                                             // uski jgh mojo ko rkh do    
+    const newli = document.createElement('li')                                //creates a new, empty <li> element in memory.
+    newli.textContent = "Mojo"                                                //Sets its text content to "Mojo" using textContent            // textcontent or innerHTML me jada difference nhi hota
+    secondLang.replaceWith(newli)                                             //  Replaces the original second <li> (secondLang) with this new <li>.
+    
+    // next example: javascript ki jgh typescript 
+    const firstlang = document.querySelector("li:first-child")
+    firstlang.outerHTML = '<li>TypeScript</li>'
+
+    // remove last element
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+
+</script>
+</html>
+
+
+<!--
+what is TextNode:
+A TextNode contains only text and no HTML tags or elements.
+It's used to ensure that any text added to the DOM is treated as plain text, not as HTML or other special characters.
+
+point: innerHTML or textContent to set the content.
+
+
+Key Differences:
+Aspect                                   function addLanguage	                                         function addOptiLanguage
+
+Method Used                                 innerHTML	                                                     createTextNode
+Security	                               Vulnerable to XSS if langName contains malicious code	        Safer, as it treats input as plain text.
+HTML Handling	                           Interprets langName as HTML.	                                    Treats langName as plain text.
+Efficiency                                 Slightly less efficient due to HTML parsing.                  	More efficient, as no HTML parsing is involved.   -->
