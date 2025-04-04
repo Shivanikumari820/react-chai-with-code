@@ -53,7 +53,7 @@ const arr2 = [0, 1, 2, 3, 4, 5];
 // Syntax  == array.splice(startIndex, deleteCount, item1, item2, ...);
 const spliced = arr2.splice(1, 3, 10, 20); // Removes 3 elements starting at index 1 and adds 10, 20
 console.log(spliced);          // Output: [1, 2, 3] (removed elements)
-console.log(arr2);              // Modified array: [0, 10, 20, 4, 5]
+console.log(arr2);              // Modified original array: [0, 10, 20, 4, 5]
 
 
 

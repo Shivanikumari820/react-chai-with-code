@@ -1,6 +1,6 @@
 "use strict"; //treat all js code as newer version           ECMA check also 
 
-// alert(3 + 3 // we are using nodejs, not browser
+// alert(3 + 3) // we are using nodejs, not browser
 
 
 

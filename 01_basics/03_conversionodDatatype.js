@@ -11,7 +11,7 @@ console.log(valueInNumber);           // print that number and it give NaN (Not 
 
 
 // "33"  =>  33
-// "33abc" => NaN
+// "33abc" => NaN   
 // true => 1; false => 0
 
 

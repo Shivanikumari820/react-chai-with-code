@@ -16,8 +16,14 @@ accountCity = "noida"
 
 console.table([accoundId, accountEmail, accountPassword, accountCity , accountState]);   // give output in tabular form
 
+/*
+Feature	           var	                       let	                                                    const
 
-
+Scope		       Function-scoped	            Block-scoped ({})                                  Block-scoped ({})
+Re-declaration      ✅ Allowed	               ❌ Not allowed	                                 ❌ Not allowed
+Re-assignment	    ✅ Allowed	               ✅ Allowed	                                     ❌ Not allowed (value fixed)
+Hoisting	        ✅ Yes (but undefined)	   ❌ Not allowed                                    ❌ Not allowed
+Use Case	        Old JS (avoid now)	        Modern, changeable vars	                        Constants/fixed values*/
 
 
 
