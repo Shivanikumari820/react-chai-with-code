@@ -7,9 +7,9 @@ let accountState;                           // agr ham sirf variable ko define k
 
 //************change their values allowed or not , lets check**************
 
-// accoundId = 21   // not allowed
-accountEmail= "shivsnii@gmail.com"
-accountPassword = "6"
+// accoundId = 21         // not allowed in const
+accountEmail= "shivsnii@gmail.com" //allowed in ler
+accountPassword = "6"            //allowed in var
 accountCity = "noida"
 
 //console.log(accountId);   //baar baar aese krke ek ek ko peint krwane se acha h isko console.table([]) krlo sare varaibles aa jayenge usme 

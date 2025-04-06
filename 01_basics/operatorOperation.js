@@ -59,3 +59,15 @@ console.log(undefined < 0);              // false
 
 console.log ("2" > 2);                   // false , bcz there datatypes is different one is string and second is number , it is strictly check
  
+
+/*🔁 Prefix (++x / --x)   = Value is updated first, then used in the expression.
+let x = 5;
+let y = ++x; // First increase x, then assign
+console.log(x); // 6
+console.log(y); // 6
+
+🔁 Postfix (x++ / x--)  = Value is used first, then updated.
+let x = 5;
+let y = x++; // First assign x, then increase
+console.log(x); // 6
+console.log(y); // 5 */
